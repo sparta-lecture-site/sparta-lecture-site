@@ -1,34 +1,28 @@
 # sparta-lecture-site
 
+# ERD
+<img width="408" alt="ERD" src="https://github.com/sparta-lecture-site/sparta-lecture-site/assets/48711163/2021b36f-daaa-4ee3-a4b4-c07a9ddbd29d">
 
+# Usecase Diagram
+<img width="307" alt="usecase diagram" src="https://github.com/sparta-lecture-site/sparta-lecture-site/assets/48711163/534414ea-b206-4a74-9b89-80eae9a04a73">
 
-
-
+# API 명세서
+![image](https://github.com/sparta-lecture-site/sparta-lecture-site/assets/48711163/c27af7af-95e7-47d0-b69f-1fd387b6c561)
 
 # 구현 기능
-- [ ]  회원 가입 기능
+- [X]  회원 가입 기능
     - `이메일`, `비밀번호`, `성별`, `전화번호`, `주소`, `권한`을 저장할 수 있습니다.
         - ADMIN, USER `권한`이 있습니다.
         - `이메일`은  `올바른 이메일 형식`을 지켜야 합니다.
         - `비밀번호`는  `최소 8자 이상, 15자 이하이며 알파벳 대소문자(a~z, A~Z), 숫자(0~9), 특수문자`로 구성되어야 합니다.
     - 회원가입 성공을 확인할 수 있는 값을 반환합니다.
-        - ex) HTTP Status Code, Error Message …
-    - 참고자료
-        
-        [RegExr: Learn, Build, & Test RegEx](https://regexr.com/3e48o)
-        
-        [정규 표현식](https://ko.wikipedia.org/wiki/정규_표현식)
-        
-        [[Spring] @Valid와 @Validated를 이용한 유효성 검증의 동작 원리 및 사용법 예시 - (1/2)](https://mangkyu.tistory.com/174)
-        
-        [[Spring Boot] @Valid 어노테이션으로 Parameter 검증하기](https://bamdule.tistory.com/35)
-        
-- [ ]  로그인 기능
+        - ex) HTTP Status Code, Error Message …    
+- [X]  로그인 기능
     - 회원은 `이메일`, `비밀번호`를 입력하여 서버에 로그인을 요청할 수 있습니다.
     - 로그인 성공 시, `회원의 정보`와 `JWT`를 활용하여 토큰을 발급하고,
     발급한 토큰을 Header에 추가한 후 로그인 성공을 확인할 수 있는 값과 함께 반환합니다.
         - ex) HTTP Status Code, Error Message …
-- [ ]  강사 등록 기능
+- [X]  강사 등록 기능
     - `이름`, `경력(년차)`, `회사`, `전화번호`, `소개`를 저장할 수 있습니다.
         - 로그인을 통해 발급받은 JWT가 함께 요청됩니다.
         - ADMIN 권한을 가진 회원만 강사 등록이 가능합니다.
@@ -52,7 +46,7 @@
     - 조회된 강의 목록은 선택한 기준에 의해 정렬됩니다.
         - `강의명`, `가격`, `등록일` 중 기준을 선택할 수 있습니다.
         - 내림차순, 오름차순을 선택할 수 있습니다.
-- [ ]  선택한 강의 댓글 기능
+- [X]  선택한 강의 댓글 기능
     - 선택한 강의에 댓글을 등록할 수 있습니다.
         - 로그인을 통해 발급받은 JWT가 함께 요청됩니다.
         - 회원만 댓글 등록이 가능합니다.
@@ -81,3 +75,15 @@
     - 선택한 강의를 조회할 때 해당 강의의 좋아요 수를 함께 조회할 수 있습니다.
 - [ ]  공통 기능
     - 로그인 요청의 비밀번호 불일치 등 API 요청의 예외가 발생하는 모든 경우에 대해서 실패(예외상황)에 대해 판단할 수 있는 Status Code, Error 메시지등의 정보를 반환합니다.
+     
+**추가 구현 기능**
+
+- [ ]  대댓글 기능
+    - 대댓글이 가능하도록 구현해보세요!
+- [ ]  회원 탈퇴 기능
+    - 회원 탈퇴 시 회원과 연관된 데이터가 모두 삭제될 수 있도록 구현해보세요!
+- [ ]  Spring Security를 적용하여 인증/인가를 구현합니다.
+    - Security의 Secured 기능을 사용하여 권한별로 API를 제어할 수 있습니다.
+- [ ]  swagger를 구글링해 보고 프로젝트에 적용해 보세요!
+    - swagger란? Open Api Specification(OAS)를 위한 프레임워크 입니다.
+        - API들이 가지고 있는 스펙(spec)을 명세, 관리할 수 있으며 백엔드와 프론트엔드가 협업할 때 사용할 수 있습니다!
