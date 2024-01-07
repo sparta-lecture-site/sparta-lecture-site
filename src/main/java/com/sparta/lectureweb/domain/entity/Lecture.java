@@ -18,6 +18,10 @@ public class Lecture extends AuditingFields{
     @Column(name = "lecture_id")
     private Long id;
 
+    @ManyToOne
+    @JoinColumn(name = "instructor_id")
+    private Instructor instructor;
+
     @Column(name = "lecture_name")
     private String lectureName;
 

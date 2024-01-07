@@ -39,4 +39,17 @@ public class LectureService {
     }
 
 
+    public List<LectureDto> getLectureListForCategory(String category, String sortBy, boolean direction) {
+        List<Lecture> lectureList = switch (sortBy) {
+            case "lectureName" -> direction ? lectureRepository.findAllByCategoryOrderByLectureNameAsc(category) :
+                    lectureRepository.findAllByCategoryOrderByLectureNameDesc(category);
+            case "price" -> direction ? lectureRepository.findAllByCategoryOrderByPriceAsc(category) :
+                    lectureRepository.findAllByCategoryOrderByPriceDesc(category);
+            case "registerAt" -> direction ? lectureRepository.findAllByCategoryOrderByRegisterAtAsc(category) :
+                    lectureRepository.findAllByCategoryOrderByRegisterAtDesc(category);
+            default -> throw new IllegalArgumentException(ErrorMessage.EXIST_CATEGORY_ERROR_MESSAGE.getErrorMessage());
+        };
+
+        return lectureList.stream().map(LectureDto::new).toList();
+    }
 }
