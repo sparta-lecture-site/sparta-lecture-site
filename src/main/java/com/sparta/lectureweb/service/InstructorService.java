@@ -20,11 +20,10 @@ public class InstructorService {
                     .career(instructorDto.getCareer())
                     .company(instructorDto.getCompany())
                     .phone(instructorDto.getPhone())
-                    .instructor_intro(instructorDto.getInstructor_intro())
+                    .instructorIntro(instructorDto.getInstructorIntro())
                     .build();
 
             Instructor saveInstructor = instructorRepository.save(instructor);
-
             return new InstructorDto(saveInstructor);
         }
 }

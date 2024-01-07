@@ -21,11 +21,11 @@ public class Comment {
     @Column(name = "contents")
     private String contents;
 
-    @Column(name = "user_id")
+    @JoinColumn(name = "user_id")
     @ManyToOne(fetch = FetchType.LAZY)
     private User user;
 
-    @Column(name = "lecture_id")
+    @JoinColumn(name = "lecture_id")
     @ManyToOne(fetch = FetchType.LAZY)
     private Lecture lecture;
 }

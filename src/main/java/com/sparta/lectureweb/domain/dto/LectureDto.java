@@ -27,6 +27,7 @@ public class LectureDto {
         this.lectureIntro = entity.getLectureIntro();
         this.category = entity.getCategory();
         this.registerAt = entity.getRegisterAt();
+        this.likes = entity.getLikes();
     }
 
 }

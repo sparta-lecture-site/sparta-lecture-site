@@ -11,19 +11,19 @@ import lombok.Setter;
 public class InstructorDto {
     private Long id;
 
-    private int career;
+    private Integer career;
 
     private String company;
 
     private String phone;
 
-    private String instructor_intro;
+    private String instructorIntro;
 
     public InstructorDto(Instructor entity){
         this.id = entity.getId();
         this.career = entity.getCareer();
         this.company = entity.getCompany();
         this.phone = entity.getPhone();
-        this.instructor_intro = entity.getInstructor_intro();
+        this.instructorIntro = entity.getInstructorIntro();
     }
 }

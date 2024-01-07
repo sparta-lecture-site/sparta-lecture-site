@@ -31,7 +31,6 @@ public class UserDto {
     public UserDto(User entity) {
         this.id = entity.getId();
         this.email = entity.getEmail();
-        this.password = entity.getPassword();
         this.gender = entity.getGender();
         this.phone = entity.getPhone();
         this.address = entity.getAddress();

@@ -15,11 +15,11 @@ public class Instructor {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Setter(AccessLevel.NONE)
-    @Column(name = "Instructor_id")
+    @Column(name = "instructor_id")
     private Long id;
 
     @Column(name = "career")
-    private int career;
+    private Integer career;
 
     @Column(name = "company")
     private String company;
@@ -28,5 +28,5 @@ public class Instructor {
     private String phone;
 
     @Column(name = "instructor_intro")
-    private String instructor_intro;
+    private String instructorIntro;
 }
