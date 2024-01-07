@@ -14,7 +14,7 @@ public class InstructorController {
 
     private final InstructorService instructorService;
 
-    public ResponseEntity<InstructorDto> createInstrucor(InstructorDto instructorDto){
+    public ResponseEntity<InstructorDto> createInstructor(InstructorDto instructorDto){
         instructorDto = instructorService.createInstructor(instructorDto);
         return ResponseEntity.ok(instructorDto);
     }
