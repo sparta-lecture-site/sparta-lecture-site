@@ -2,6 +2,7 @@ package com.sparta.lectureweb.controller;
 
 import com.sparta.lectureweb.domain.dto.InstructorDto;
 import com.sparta.lectureweb.service.InstructorService;
+import jakarta.servlet.http.HttpServletRequest;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -16,8 +17,8 @@ public class InstructorController {
     private final InstructorService instructorService;
 
     @PostMapping("/instructors")
-    public ResponseEntity<InstructorDto> createInstructor(InstructorDto instructorDto){
-        return ResponseEntity.ok(instructorService.createInstructor(instructorDto));
+    public ResponseEntity<InstructorDto> createInstructor(InstructorDto instructorDto, HttpServletRequest request){
+        return ResponseEntity.ok(instructorService.createInstructor(instructorDto, request));
 
     }
 }
