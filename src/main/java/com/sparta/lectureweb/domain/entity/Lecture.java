@@ -36,4 +36,11 @@ public class Lecture extends AuditingFields{
 
     @Column(name = "likes")
     private Integer likes;
+
+    public void addLike(Lecture lecture){
+        this.likes += 1;
+    }
+    public void cancelLike(Lecture lecture){
+        this.likes -= 1;
+    }
 }

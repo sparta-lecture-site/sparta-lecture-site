@@ -37,6 +37,7 @@ public class LectureService {
                 .price(lectureDto.getPrice())
                 .lectureIntro(lectureDto.getLectureIntro())
                 .category(lectureDto.getCategory())
+                .likes(lectureDto.getLikes())
                 .instructor(instructor)
                 .build();
         Lecture savelecture = lectureRepository.save(lecture);
