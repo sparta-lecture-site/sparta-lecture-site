@@ -17,7 +17,7 @@ public class LectureController {
     private final LectureService lectureService;
 
     @PostMapping("/lectures")
-    public ResponseEntity<LectureDto> createLecture(LectureDto lectureDto, HttpServletRequest request){
+    public ResponseEntity<LectureDto> createLecture(@RequestBody LectureDto lectureDto, HttpServletRequest request){
         return ResponseEntity.ok(lectureService.createLecture(lectureDto, request));
     }
 
@@ -26,7 +26,7 @@ public class LectureController {
         return ResponseEntity.ok(lectureService.getLecture(lectureId));
     }
 
-    @GetMapping("/lecture")
+    @GetMapping("/lectures")
     public ResponseEntity<List<LectureDto>> getLectureListByCategory(@RequestParam String category, @RequestParam String sortBy, @RequestParam boolean direction){
         return ResponseEntity.ok(lectureService.getLectureListForCategory(category, sortBy, direction));
     }

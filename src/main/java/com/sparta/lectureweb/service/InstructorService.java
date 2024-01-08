@@ -20,12 +20,13 @@ public class InstructorService {
         @Transactional
         public InstructorDto createInstructor(InstructorDto instructorDto, HttpServletRequest request){
             User user = (User) request.getAttribute("user");
-
+            System.out.println(user.getAuthority());
             if(user.getAuthority() != Authority.ADMIN){
                 throw new IllegalArgumentException(ErrorMessage.AUTH_EXCEPTION_MESSAGE.getErrorMessage());
             }
 
             Instructor instructor = Instructor.builder()
+                    .instructorName(instructorDto.getInstructorName())
                     .career(instructorDto.getCareer())
                     .company(instructorDto.getCompany())
                     .phone(instructorDto.getPhone())
