@@ -18,6 +18,9 @@ public class Instructor {
     @Column(name = "instructor_id")
     private Long id;
 
+    @Column(name = "instructor_name")
+    private String instructorName;
+
     @Column(name = "career")
     private Integer career;
 

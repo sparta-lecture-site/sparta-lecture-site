@@ -18,7 +18,7 @@ public class Lecture extends AuditingFields{
     @Column(name = "lecture_id")
     private Long id;
 
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "instructor_id")
     private Instructor instructor;
 
