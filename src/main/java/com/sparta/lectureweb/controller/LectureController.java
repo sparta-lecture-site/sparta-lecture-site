@@ -30,4 +30,5 @@ public class LectureController {
     public ResponseEntity<List<LectureDto>> getLectureListByCategory(@RequestParam String category, @RequestParam String sortBy, @RequestParam boolean direction){
         return ResponseEntity.ok(lectureService.getLectureListForCategory(category, sortBy, direction));
     }
+
 }

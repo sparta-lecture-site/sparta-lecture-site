@@ -8,4 +8,6 @@ import org.springframework.stereotype.Repository;
 public interface LikeRepository extends JpaRepository<Like, Long> {
 
     Like findByUserIdAndLectureId(Long lectureId, Long userId);
+
+    Iterable<Like> findByUserId(Long userId);
 }
