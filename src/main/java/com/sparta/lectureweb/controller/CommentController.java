@@ -23,11 +23,7 @@ public class CommentController {
 
     @PutMapping("/lectures/{lectureId}/comments/{commentsId}")
     public ResponseEntity<Void> modifyComment(@RequestBody CommentDto commentDto, @PathVariable Long lectureId, @PathVariable Long commentsId, HttpServletRequest request) {
-        try {
-            commentService.modifyComment(commentDto, lectureId, commentsId, request);
-        } catch (Exception e) {
-
-        }
+        commentService.modifyComment(commentDto, lectureId, commentsId, request);
         return new ResponseEntity<>(HttpStatus.OK);
     }
 
