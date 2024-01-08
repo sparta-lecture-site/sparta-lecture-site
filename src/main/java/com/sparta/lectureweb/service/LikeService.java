@@ -26,16 +26,34 @@ public class LikeService {
         Lecture lecture = lectureRepository.findById(lectureId).orElseThrow(() ->
                 new IllegalArgumentException(ErrorMessage.EXIST_LECTURE_ERROR_MESSAGE.getErrorMessage()));
 
-        if(checkLike == null) {
+        if(lecture != null && checkLike == null) {
             Like like = Like.builder()
                     .user(user)
                     .lecture(lecture)
                     .build();
             likeRepository.save(like);
-            lecture.addLike(lecture);
+            addLike(lecture);
         } else {
             likeRepository.delete(checkLike);
-            lecture.cancelLike(lecture);
+            minusLike(lecture);
         }
     }
+
+    private static void addLike(Lecture lecture) {
+        if (lecture == null) {
+            return;
+        }
+
+        lecture.setLikes(lecture.getLikes() == null ? 0 : lecture.getLikes() + 1);
+    }
+
+    private static void minusLike(Lecture lecture) {
+        if (lecture == null) {
+            return;
+        }
+
+        lecture.setLikes(lecture.getLikes() == null ? 0 : lecture.getLikes() - 1);
+    }
+
+
 }
