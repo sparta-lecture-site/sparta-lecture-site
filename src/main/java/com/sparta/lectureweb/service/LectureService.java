@@ -1,12 +1,15 @@
 package com.sparta.lectureweb.service;
 
 import com.sparta.lectureweb.domain.Authority;
+import com.sparta.lectureweb.domain.dto.CommentDto;
 import com.sparta.lectureweb.domain.dto.InstructorDto;
 import com.sparta.lectureweb.domain.dto.LectureDto;
+import com.sparta.lectureweb.domain.entity.Comment;
 import com.sparta.lectureweb.domain.entity.Instructor;
 import com.sparta.lectureweb.domain.entity.Lecture;
 import com.sparta.lectureweb.domain.entity.User;
 import com.sparta.lectureweb.message.ErrorMessage;
+import com.sparta.lectureweb.repository.CommentRepository;
 import com.sparta.lectureweb.repository.InstructorRepository;
 import com.sparta.lectureweb.repository.LectureRepository;
 import jakarta.servlet.http.HttpServletRequest;
@@ -15,6 +18,7 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.stream.Collectors;
 
 @Service
 @RequiredArgsConstructor
@@ -22,6 +26,7 @@ public class LectureService {
 
     private final LectureRepository lectureRepository;
     private final InstructorRepository instructorRepository;
+    private final CommentRepository commentRepository;
 
     @Transactional
     public LectureDto createLecture(LectureDto lectureDto, HttpServletRequest request) {
@@ -49,6 +54,8 @@ public class LectureService {
 
         Lecture lecture = findLecture(lectureId);
         Instructor instructor = findInstructor(lecture.getInstructor().getId());
+        List<CommentDto> commentDtoList = commentRepository.findAllByLectureId(lectureId).stream()
+                                                            .map(CommentDto::new).toList();;
 
         InstructorDto instructorDto = InstructorDto.builder()
                 .id(instructor.getId())
@@ -58,7 +65,7 @@ public class LectureService {
                 .instructorIntro(instructor.getInstructorIntro())
                 .build();
 
-        return new LectureDto(findLecture(lectureId), instructorDto);
+        return new LectureDto(findLecture(lectureId), instructorDto, commentDtoList);
     }
 
 
