@@ -1,4 +1,4 @@
-# sparta-lecture-site
+# [HangHae] sparta-lecture-site
 
 # ERD
 <img width="408" alt="ERD" src="https://github.com/sparta-lecture-site/sparta-lecture-site/assets/48711163/2021b36f-daaa-4ee3-a4b4-c07a9ddbd29d">
