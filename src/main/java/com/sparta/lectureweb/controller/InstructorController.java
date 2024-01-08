@@ -17,6 +17,7 @@ public class InstructorController {
 
     @PostMapping("/instructors")
     public ResponseEntity<InstructorDto> createInstructor(InstructorDto instructorDto){
+
         return ResponseEntity.ok(instructorService.createInstructor(instructorDto));
 
     }

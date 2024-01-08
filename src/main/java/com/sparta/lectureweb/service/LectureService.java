@@ -38,7 +38,6 @@ public class LectureService {
                 new IllegalArgumentException(ErrorMessage.EXIST_LECTURE_ERROR_MESSAGE.getErrorMessage()));
     }
 
-
     public List<LectureDto> getLectureListForCategory(String category, String sortBy, boolean direction) {
         List<Lecture> lectureList = switch (sortBy) {
             case "lectureName" -> direction ? lectureRepository.findAllByCategoryOrderByLectureNameAsc(category) :

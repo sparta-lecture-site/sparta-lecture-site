@@ -25,7 +25,7 @@ public class LectureController {
         return ResponseEntity.ok(lectureService.getLecture(lectureId));
     }
 
-    @GetMapping("/lecture")
+    @GetMapping("/lectures")
     public ResponseEntity<List<LectureDto>> getLectureListForCategory(@RequestParam String category, @RequestParam String sortBy, @RequestParam boolean direction){
         return ResponseEntity.ok(lectureService.getLectureListForCategory(category, sortBy, direction));
     }
