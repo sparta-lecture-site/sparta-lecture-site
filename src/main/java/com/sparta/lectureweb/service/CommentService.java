@@ -45,4 +45,15 @@ public class CommentService {
         }
         comment.setContents(requestDto.getContents());
     }
+
+    @Transactional
+    public void deleteComment(Long lectureId, Long commentsId, HttpServletRequest request) {
+        User user = (User) request.getAttribute("user");
+        Comment comment = commentRepository.findByIdAndLectureId(commentsId, lectureId);
+
+        if (!user.getId().equals(comment.getUser().getId())) {
+            throw new ResponseStatusException(HttpStatus.UNAUTHORIZED, "접근 권한이 없습니다.");
+        }
+        commentRepository.delete(comment);
+    }
 }

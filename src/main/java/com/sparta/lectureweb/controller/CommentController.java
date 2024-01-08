@@ -1,7 +1,6 @@
 package com.sparta.lectureweb.controller;
 
 import com.sparta.lectureweb.domain.dto.CommentDto;
-import com.sparta.lectureweb.domain.entity.Comment;
 import com.sparta.lectureweb.service.CommentService;
 import jakarta.servlet.http.HttpServletRequest;
 import lombok.RequiredArgsConstructor;
@@ -24,6 +23,12 @@ public class CommentController {
     @PutMapping("/lectures/{lectureId}/comments/{commentsId}")
     public ResponseEntity<Void> modifyComment(@RequestBody CommentDto commentDto, @PathVariable Long lectureId, @PathVariable Long commentsId, HttpServletRequest request) {
         commentService.modifyComment(commentDto, lectureId, commentsId, request);
+        return new ResponseEntity<>(HttpStatus.OK);
+    }
+
+    @DeleteMapping("/lectures/{lectureId}/comments/{commentsId}")
+    public ResponseEntity<Void> deleteComment(@PathVariable Long lectureId, @PathVariable Long commentsId, HttpServletRequest request) {
+        commentService.deleteComment(lectureId, commentsId, request);
         return new ResponseEntity<>(HttpStatus.OK);
     }
 
